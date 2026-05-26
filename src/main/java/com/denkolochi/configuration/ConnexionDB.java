@@ -5,19 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 public class ConnexionDB {
-	
-	
-
-	private static String  url = "jdbc:mysql://localhost:3306/suivi_enfant?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8";
-    private static String utilisateur = "root";
-    private static String mot_de_passe = "6240";
-
     private static  ConnexionDB instance = null;
     private  Connection connection= null;
 
     public ConnexionDB() {
         try {
-            this.connection = DriverManager.getConnection(url, utilisateur, mot_de_passe);
+            this.connection = DriverManager.getConnection(DbConstConfig.url, DbConstConfig.utilisateur, DbConstConfig.mot_de_passe);
             System.out.println("Connexion MySQL établie avec succès.");
         } catch(SQLException e){
             System.err.println("Erreur de connexion à la base de données.");
