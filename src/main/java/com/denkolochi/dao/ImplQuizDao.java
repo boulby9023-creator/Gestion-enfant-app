@@ -11,13 +11,9 @@ import com.denkolochi.model.Activite;
 import com.denkolochi.model.Quiz;
 import com.denkolochi.enumeration.TypeActivitesEnum;
 
-<<<<<<< HEAD
-public class ImplQuizDao implements Repository<Quiz, Integer> {
-	Connection con = ConnexionDB.getInstance().getconnection();
-=======
+
 public class ImplQuizDao implements Repository<Quiz,Integer> {
     Connection con = ConnexionDB.getInstance().getconnection();
->>>>>>> 24435ed6a9df80e860a8886a3ef17abf938d993f
 
 	@Override
 	public void save(Quiz entity) {

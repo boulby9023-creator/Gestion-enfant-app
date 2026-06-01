@@ -10,22 +10,11 @@ import com.denkolochi.model.Corporelle;
 public class ImplcorporelleDao implements Repository<Corporelle, Integer> {
 	Connection con = ConnexionDB.getInstance().getconnection();
 
-<<<<<<< HEAD
-	@Override
-	public void save(Corporelle entity) {
-=======
+
+
     @Override
     public void save( Corporelle entity) {
-        Connection con = ConnexionDB.getInstance().getconnection();
-        String sql = "INSERT INTO corporelles VALUES (?,?,?,?,?,?)";
-                try (PreparedStatement pont = con.prepareStatement(sql)) {
-                    pont.setNull(1, java.sql.Types.INTEGER);
-                    pont.setInt(2, entity.getId_enfant());
-                    pont.setDouble(3, entity.getPoids());
-                     pont.setDouble(4, entity.getTaille());
-                     pont.setDouble(5, entity.getImc());
-                     pont.setDate(6, entity.getDate_mesure() != null ? new java.sql.Date(entity.getDate_mesure().getTime()) : null);
->>>>>>> 24435ed6a9df80e860a8886a3ef17abf938d993f
+ 
 
 		String sql = "INSERT INTO corporelles VALUES (?,?,?,?,?,?)";
 		try (PreparedStatement pont = con.prepareStatement(sql)) {
