@@ -6,14 +6,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ConnexionDB {
-<<<<<<< HEAD
+
 	private static ConnexionDB instance = null;
 	private Connection connection = null;
-=======
 
-    private static  ConnexionDB instance   = null;
-    private  Connection connection= null;
->>>>>>> 24435ed6a9df80e860a8886a3ef17abf938d993f
+
 
 	public ConnexionDB() {
 		try {

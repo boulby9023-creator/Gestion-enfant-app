@@ -7,26 +7,10 @@ import com.denkolochi.configuration.ConnexionDB;
 import com.denkolochi.model.Utilisateur;
 import com.denkolochi.enumeration.RoleEnum;
 
-<<<<<<< HEAD
-public class ImplUtilisateurDao implements Repository<Utilisateur, Integer> {
-	Connection con = ConnexionDB.getInstance().getconnection();
-=======
+
 public class ImplUtilisateurDao implements Repository<Utilisateur, Integer>{
     Connection con = ConnexionDB.getInstance().getconnection();
-    @Override
-    public void save(Utilisateur entity) {
-        //entity.toString();
-        String sql = "INSERT INTO utilisateurs VALUES(?,?,?,?,?,?,?)";
-        try {
-            PreparedStatement prepare = con.prepareStatement(sql);
-            prepare.setNull(1, 0);
-            prepare.setString(2, entity.getNom());
-            prepare.setString(3, entity.getPrenom());
-            prepare.setString(4, entity.getTel());
-            prepare.setString(5, entity.getMail());
-            prepare.setString(6, entity.getMotDePasse());
-            prepare.setString(7, entity.getRole().toString());
->>>>>>> 24435ed6a9df80e860a8886a3ef17abf938d993f
+   
 
 	@Override
 	public void save(Utilisateur entity) {
@@ -149,7 +133,6 @@ public class ImplUtilisateurDao implements Repository<Utilisateur, Integer>{
 
 	}
 
-<<<<<<< HEAD
 	public Utilisateur findByMail(String mail) {
 		String sql = "SELECT * FROM utilisateurs WHERE mail = ?";
 		try (PreparedStatement pont = con.prepareStatement(sql)) {
@@ -173,14 +156,8 @@ public class ImplUtilisateurDao implements Repository<Utilisateur, Integer>{
 		}
 		return null;
 	}
-=======
-    public  boolean seConnecter(String mail, String motDePasse){
-        String sql = "SELECT * FROM utilisateurs WHERE mail = ? AND mot_de_passe = ?";
-        try {
-            PreparedStatement prepare = con.prepareStatement(sql);
-            prepare.setString(1, mail);
-            prepare.setString(2, motDePasse);
->>>>>>> 24435ed6a9df80e860a8886a3ef17abf938d993f
+
+ 
 
 	public boolean seConnecter(String mail, String motDePasse) {
 
