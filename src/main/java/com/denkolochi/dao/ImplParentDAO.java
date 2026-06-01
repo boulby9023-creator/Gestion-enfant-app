@@ -10,12 +10,22 @@ import com.denkolochi.model.Parent;
 public class ImplParentDAO implements Repository<Parent, Integer> {
 	Connection con = ConnexionDB.getInstance().getconnection();
 
+<<<<<<< HEAD
 	@Override
 	public void save(Parent entity) {
 		String sql = "INSERT INTO parents VALUES (?,?)";
 		try (PreparedStatement pont = con.prepareStatement(sql)) {
 			pont.setInt(1, entity.getId_parent());
 			pont.setString(2, entity.getGenre());
+=======
+    Connection con = ConnexionDB.getInstance().getconnection();
+    @Override
+    public void save(Parent entity) {
+        String sql = "INSERT INTO parents VALUES (?,?)";
+        try (PreparedStatement pont = con.prepareStatement(sql)) {
+            pont.setInt(1, entity.getId_parent());
+            pont.setString(2, entity.getGenre());
+>>>>>>> 24435ed6a9df80e860a8886a3ef17abf938d993f
 
 			int b = pont.executeUpdate();
 			if (b > 0) {

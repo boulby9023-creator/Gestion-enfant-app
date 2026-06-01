@@ -10,7 +10,13 @@ import com.denkolochi.configuration.ConnexionDB;
 import com.denkolochi.model.Admins;
 import com.denkolochi.enumeration.RoleEnum;
 
+<<<<<<< HEAD
 public class ImplAdminDao implements Repository<Admins, Integer> {
+=======
+public class ImplAdminDao implements Repository <Admins , Integer> {
+    
+    Connection con =ConnexionDB.getInstance().getconnection();
+>>>>>>> 24435ed6a9df80e860a8886a3ef17abf938d993f
 
 	Connection con = ConnexionDB.getInstance().getconnection();
 

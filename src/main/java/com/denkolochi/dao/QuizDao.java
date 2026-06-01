@@ -9,8 +9,13 @@ import java.util.List;
 import com.denkolochi.configuration.ConnexionDB;
 import com.denkolochi.model.Quiz;
 
+<<<<<<< HEAD
 public class QuizDao implements Repository<Quiz, Integer> {
 	Connection con = ConnexionDB.getInstance().getconnection();
+=======
+public class QuizDao implements Repository<Quiz,Integer> {
+    Connection con = ConnexionDB.getInstance().getconnection();
+>>>>>>> 24435ed6a9df80e860a8886a3ef17abf938d993f
 
 	@Override
 	public void save(Quiz entity) {

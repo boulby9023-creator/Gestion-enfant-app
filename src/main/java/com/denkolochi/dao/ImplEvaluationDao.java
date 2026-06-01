@@ -9,7 +9,11 @@ import com.denkolochi.configuration.ConnexionDB;
 import com.denkolochi.model.Evaluation;
 
 public class ImplEvaluationDao implements Repository<Evaluation, Integer> {
+<<<<<<< HEAD
 	Connection con = ConnexionDB.getInstance().getconnection();
+=======
+     Connection con =ConnexionDB.getInstance().getconnection();
+>>>>>>> 24435ed6a9df80e860a8886a3ef17abf938d993f
 
 	@Override
 	public void save(Evaluation entity) {
