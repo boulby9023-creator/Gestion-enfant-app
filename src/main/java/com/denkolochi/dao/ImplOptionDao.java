@@ -1,4 +1,5 @@
 package com.denkolochi.dao;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +10,85 @@ import com.denkolochi.configuration.ConnexionDB;
 import com.denkolochi.model.Option;
 
 public class ImplOptionDao implements Repository<Option, Integer> {
+	Connection con = ConnexionDB.getInstance().getconnection();
 
+<<<<<<< HEAD
+	@Override
+	public void save(Option entity) {
+
+		String sql = "INSERT INTO option (id, texte, estCorrecte) VALUES (?,?,?,?)";
+		try (PreparedStatement pont = con.prepareStatement(sql)) {
+			pont.setInt(1, entity.getId());
+			pont.setString(2, entity.getTexte());
+			pont.setBoolean(3, entity.isEstCorrecte());
+			pont.setInt(4, entity.getId_question());
+
+			int rows = pont.executeUpdate();
+			if (rows > 0) {
+				System.out.println("Option insérée avec succès");
+			}
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+//     @Override
+//     public Option findById(Integer id) {
+//         Connection con = ConnexionDB.getConexion();
+//         String sql = "SELECT * FROM option WHERE id = ?";
+//         try (PreparedStatement pont = con.prepareStatement(sql)) {
+//             pont.setInt(1, id);
+//             ResultSet rs = pont.executeQuery();
+//             if (rs.next()) {
+//                 Option option = new Option();
+//                 option.setId(rs.getInt("id"));
+//                 option.setTexte(rs.getString("texte"));
+//                 option.setEstCorrecte(rs.getBoolean("estCorrecte"));
+//                 return option;
+//             }
+//         } catch (SQLException e) {
+//             e.printStackTrace();
+//         }
+//         return null;
+//     }
+
+//     @Override
+//     public List<Option> findAll() {
+//         Connection con = ConnexionDB.getConexion();
+//         String sql = "SELECT * FROM option";
+//         List<Option> options = new ArrayList<>();
+//         try (PreparedStatement pont = con.prepareStatement(sql)) {
+//             ResultSet rs = pont.executeQuery();
+//             while (rs.next()) {
+//                 Option option = new Option();
+//     }catch (SQLException e) {
+//             e.printStackTrace();
+//         }
+//         return options;
+//     }
+
+//     @Override
+//     public void delete(Integer id) {
+//         Connection con = ConnexionDB.getConexion();
+//         String sql = "DELETE FROM option WHERE id = ?";
+//  }
+
+//     @Override
+//     public void updtae(Integer id, Option entity)
+//         throw new UnsupportedOperationException("Unimplemented method 'updtae'");
+//     }
+	@Override
+	public void delete(Integer id) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'delete'");
+	}
+
+	@Override
+	public void update(Integer id, Option entity) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'updtae'");
+	}
+=======
 	Connection con = ConnexionDB.getInstance().getconnection();
 @Override
 public void save(Option entity) {
@@ -59,42 +138,65 @@ public void save(Option entity) {
         }
         return null;
     }
+>>>>>>> 24435ed6a9df80e860a8886a3ef17abf938d993f
 
-    @Override
-    public List<Option> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
-    }
+	@Override
+	public Option findById(Integer id) {
 
-    public List<Option> findByIdQuestion(int id_question) {
+		String sql = "SELECT * FROM options WHERE id_options = ?";
+		try (PreparedStatement pont = con.prepareStatement(sql)) {
+			pont.setInt(1, id);
+			ResultSet rs = pont.executeQuery();
+			if (rs.next()) {
+				Option option = new Option();
+				option.setId(rs.getInt("id_options"));
+				option.setTexte(rs.getString("texte"));
+				option.setEstCorrecte(rs.getBoolean("est_correct"));
+				return option;
+			}
+		} catch (SQLException e) {
+			System.out.println("Erreur lors de la récupération de l'option : " + e.getMessage());
+		}
+		return null;
+	}
 
+<<<<<<< HEAD
+	@Override
+	public List<Option> findAll() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+	}
+=======
+>>>>>>> 24435ed6a9df80e860a8886a3ef17abf938d993f
 
-    String sql = "SELECT * FROM options WHERE id_question = ?";
+	public List<Option> findByIdQuestion(int id_question) {
 
-    List<Option> options = new ArrayList<>();
+		String sql = "SELECT * FROM options WHERE id_question = ?";
 
-    try (PreparedStatement pont = con.prepareStatement(sql)) {
+		List<Option> options = new ArrayList<>();
 
-        pont.setInt(1, id_question);
+		try (PreparedStatement pont = con.prepareStatement(sql)) {
 
-        ResultSet rs = pont.executeQuery();
+			pont.setInt(1, id_question);
 
-        while (rs.next()) {
+			ResultSet rs = pont.executeQuery();
 
-            Option option = new Option();
+			while (rs.next()) {
 
-            option.setId(rs.getInt("id_options"));
-            option.setTexte(rs.getString("texte"));
-            option.setEstCorrecte(rs.getBoolean("est_correct"));
+				Option option = new Option();
 
-            options.add(option);
-        }
+				option.setId(rs.getInt("id_options"));
+				option.setTexte(rs.getString("texte"));
+				option.setEstCorrecte(rs.getBoolean("est_correct"));
 
-    } catch (SQLException e) {
+				options.add(option);
+			}
 
-        System.out.println("Erreur lors de la récupération des options : " + e.getMessage());
-    }
+		} catch (SQLException e) {
 
-    return options;
-}
+			System.out.println("Erreur lors de la récupération des options : " + e.getMessage());
+		}
+
+		return options;
+	}
 }
