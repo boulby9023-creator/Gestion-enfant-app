@@ -63,7 +63,7 @@
         <li class="nav-item">
 
             <a class="nav-link"
-               href="${pageContext.request.contextPath}/child-profile">
+               href="${pageContext.request.contextPath}/liste-enfant">
 
                 <i class="bi bi-people-fill"></i>
 
